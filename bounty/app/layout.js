@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <main className="min-h-[calc(100vh-4rem)] pt-4">
           {children}
         </main>
-        <footer className="bg-gray-900 border-t border-gray-800 py-12 mt-20">
+        <footer className="bg-gray-900 border-t border-gray-800 py-16 mt-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <p className="text-gray-400 text-sm">

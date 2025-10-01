@@ -47,7 +47,7 @@ export default function ChallengeCard({ challenge, userFlags = [], index }) {
       className="group"
     >
       <Link href={`/challenges/${challenge.id}`}>
-        <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 h-full hover:border-primary-500/50 transition-all duration-300 overflow-hidden">
+        <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 h-full hover:border-primary-500/50 transition-all duration-300 overflow-hidden min-h-[500px]">
           {/* Background glow effect */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           
@@ -60,14 +60,14 @@ export default function ChallengeCard({ challenge, userFlags = [], index }) {
             </div>
           )}
 
-          <div className="relative">
+          <div className="relative flex flex-col h-full">
             {/* Header */}
-            <div className="flex items-start gap-4 mb-4">
-              <div className="p-3 bg-primary-600/20 rounded-xl">
-                <Icon className="w-6 h-6 text-primary-400" />
+            <div className="flex items-start gap-4 mb-6">
+              <div className="p-4 bg-primary-600/20 rounded-xl">
+                <Icon className="w-8 h-8 text-primary-400" />
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-300 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary-300 transition-colors">
                   {challenge.title}
                 </h3>
                 <div className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium border ${difficultyColors[challenge.difficulty]}`}>
@@ -80,20 +80,20 @@ export default function ChallengeCard({ challenge, userFlags = [], index }) {
             </div>
 
             {/* Description */}
-            <p className="text-gray-400 mb-4 leading-relaxed">
+            <p className="text-gray-400 mb-6 leading-relaxed">
               {challenge.description}
             </p>
 
             {/* Hint */}
-            <div className="bg-gray-900/50 border border-gray-600 rounded-lg p-3 mb-4">
+            <div className="bg-gray-900/50 border border-gray-600 rounded-lg p-4 mb-6">
               <p className="text-sm text-gray-300">
                 <span className="text-yellow-400 font-medium">Hint:</span> {challenge.hint}
               </p>
             </div>
 
             {/* Progress */}
-            <div className="mb-4">
-              <div className="flex items-center justify-between mb-2">
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-medium text-gray-300">Progress</span>
                 <span className="text-sm text-gray-400">
                   {completedSubtasks.length}/{challenge.subtasks.length} tasks
@@ -114,8 +114,8 @@ export default function ChallengeCard({ challenge, userFlags = [], index }) {
             </div>
 
             {/* Subtasks */}
-            <div className="space-y-2">
-              <h4 className="text-sm font-medium text-gray-300 mb-2">Tasks:</h4>
+            <div className="space-y-3 flex-grow">
+              <h4 className="text-sm font-medium text-gray-300 mb-3">Tasks:</h4>
               {challenge.subtasks.map((subtask, subtaskIndex) => {
                 const isSubtaskCompleted = userFlags.some(flag => 
                   flag.challengeId === challenge.id && flag.subtaskId === subtask.id
@@ -124,7 +124,7 @@ export default function ChallengeCard({ challenge, userFlags = [], index }) {
                 return (
                   <div
                     key={subtask.id}
-                    className={`flex items-center gap-2 text-sm p-2 rounded-lg transition-colors ${
+                    className={`flex items-center gap-3 text-sm p-3 rounded-lg transition-colors ${
                       isSubtaskCompleted 
                         ? 'bg-success-600/10 text-success-400' 
                         : 'bg-gray-800/30 text-gray-400'
@@ -140,7 +140,7 @@ export default function ChallengeCard({ challenge, userFlags = [], index }) {
             </div>
 
             {/* Action indicator */}
-            <div className="mt-6 flex items-center justify-between">
+            <div className="mt-6 flex items-center justify-between border-t border-gray-700/50 pt-4">
               <div className="text-sm text-gray-500">
                 Click to start challenge
               </div>
