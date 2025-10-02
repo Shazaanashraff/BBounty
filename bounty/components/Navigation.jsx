@@ -47,7 +47,7 @@ export default function Navigation() {
   }
 
   const navItems = [
-    { href: '/', label: 'Challenges' },
+    { href: '/challenges', label: 'Challenges' },
     { href: '/leaderboard', label: 'Leaderboard' },
     { href: '/about', label: 'About' }
   ]
